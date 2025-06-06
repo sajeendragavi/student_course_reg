@@ -5,17 +5,20 @@ import com.testfin.studentscourse.entity.Student;
 import com.testfin.studentscourse.repository.CourseRepository;
 import com.testfin.studentscourse.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+@RequestMapping("/api/students")
 public class StudentController {
 
     @Autowired
     private StudentRepository studentRepository;
     @Autowired
     private CourseRepository courseRepository;
+
 
     @PostMapping
     public Student register(@RequestBody Student student){
